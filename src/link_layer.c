@@ -21,6 +21,7 @@
 
 int alarmEnabled = FALSE;
 int alarmCount = 0;
+int alarmStatistics = 0;
 int fd;
 int frame = 0;
 int llreadDisc = 0;
@@ -45,7 +46,8 @@ clock_t ending;
 
 // Alarm function handler
 void alarmHandler(int signal)
-{
+{  
+   alarmStatistics++;
    alarmCount++;
    alarmEnabled = FALSE;
    printf("Alarm %d\n", alarmCount);
@@ -742,5 +744,5 @@ void printStatistics() {
     double cpu_time = ((double)(ending - starting)) / CLOCKS_PER_SEC;
     printf("CPU Time Used: %f seconds\n", cpu_time);
     printf("Maximum Payload Size: %d\n", MAX_PAYLOAD_SIZE);
-    printf("Number of Retransmissions: %d\n", alarmCount);
+    printf("Number of Retransmissions: %d\n", alarmStatistics);
 }

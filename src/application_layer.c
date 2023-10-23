@@ -73,7 +73,7 @@ int readControlPacket(unsigned char* name){
 
 void applicationLayer(const char *serialPort, const char *role, int baudRate, int nTries, int timeout, const char *filename) {
     LinkLayer parameters;
-    int statistics = 0;
+    int statistics = 1;
     strcpy(parameters.serialPort, serialPort);
     if (strcmp(role, "rx") == 0) {
         parameters.role = LlRx;
