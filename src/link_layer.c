@@ -384,7 +384,7 @@ int llwrite(const unsigned char *buf, int bufSize)
                }
                break;
          case C_RCV:
-               if (byte == (0x01^cbyte)) {
+               if (byte == (0x03^cbyte)) {
                   state = BCC_OK;
                }
                else if (byte == 0x7E) {
